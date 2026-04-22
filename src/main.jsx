@@ -1,7 +1,6 @@
 import { createRoot } from 'react-dom/client'
-import toast from 'react-hot-toast';
 import './index.css'
+import App from './App.jsx'
 
 const root = createRoot(document.getElementById('root'))
-root.render(
-)
+root.render(<App />)
