@@ -27,7 +27,41 @@ export default function Signup() {
           </div>
         </div>
 
-        
+        {/* RIGHT SIDE FORM */}
+        <div className="left">
+          <h2 className="heading-container">Signup</h2>
+          <p>Create your account to continue</p>
+
+          {/* Google */}
+          <a
+            href="https://accounts.google.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="social-btn"
+          >
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/281/281764.png"
+              alt="Google"
+              className="icon"
+            />
+            Sign up with Google
+          </a>
+
+          {/* Facebook */}
+          <a
+            href="https://www.facebook.com/"
+            target="_blank"
+            rel="noreferrer"
+            className="social-btn"
+          >
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+              alt="Facebook"
+              className="icon"
+            />
+            Sign up with Facebook
+          </a>
+
         </div>
 
       </div>
