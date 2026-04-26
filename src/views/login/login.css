@@ -2,3 +2,77 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
 }
+
+.wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.container {
+  display: flex;
+  width: 800px;
+  height: 450px;
+  height: auto;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* LEFT */
+.left {
+  width: 50%;
+  padding: 40px;
+}
+
+.heading-container {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.left p {
+  color: gray;
+  margin-bottom: 20px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 10px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.login-btn:hover {
+  background: #5a67d8;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f1f1f1;
+  padding: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.icon {
+  width: 20px;
+}
