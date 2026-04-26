@@ -51,7 +51,13 @@ export default function Login() {
            
         </div>
 
-       
+        {/* RIGHT SIDE */}
+        <div className="right">
+          <div className="right-text">
+            <h2>Welcome Back!</h2>
+            <p>Don't have an account? <a href="/signup">Sign up</a> now.</p>
+          </div>
+        </div>
 
       </div>
     </div>
