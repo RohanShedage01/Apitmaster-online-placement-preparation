@@ -7,30 +7,36 @@ import Footer from "../../components/Footer/footer";
 
 import { Calculator, Brain, BookOpen, Code } from "lucide-react";
 
-function dashboard() {
+function Dashboard() {
+  const navigate = useNavigate();
+
   const cards = [
     {
       id: 1,
       title: "Aptitude",
       description: "Improve quantitative skills",
+      path: "/aptitude",
       icon: <Calculator size={40} />,
     },
     {
       id: 2,
       title: "Reasoning",
       description: "Boost logical thinking ability",
+      path: "/reasoning",
       icon: <Brain size={40} />,
     },
     {
       id: 3,
-      title: "English",
+      title: "Verbal Ability",
       description: "Enhance grammar and vocabulary",
+      path: "/verbal",
       icon: <BookOpen size={40} />,
     },
     {
       id: 4,
       title: "Coding",
       description: "Practice programming questions",
+      path: "/coding",
       icon: <Code size={40} />,
     },
   ];
@@ -49,9 +55,7 @@ function dashboard() {
               <h2>{item.title}</h2>
               <p>{item.description}</p>
 
-              <button onClick={() => navigate(`/categories/${item.title}`)}>
-                Start
-              </button>
+              <button onClick={() => navigate(item.path)}>Start</button>
             </div>
           );
         })}
@@ -61,4 +65,4 @@ function dashboard() {
   );
 }
 
-export default dashboard;
+export default Dashboard;

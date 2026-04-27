@@ -4,7 +4,10 @@ import Footer from './components/footer/footer';
 import Home from './views/home/home';
 import Aptitude from "./views/categories/aptitude.jsx";
 import Dashboard from './views/dashboard/dashboard.jsx';
-import Profile from './views/profile/profile.jsx';
+import Results from './views/results/results'; 
+import About from './views/about/about';
+import Login from './views/login/login';
+import Signup from './views/signup/signup';
 
 function App() {
   return (
@@ -13,10 +16,13 @@ function App() {
       <main className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/results" element={<Results />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/home" element={<Navigate to="/" replace />} />
           <Route path="/aptitude" element={<Aptitude />} />
           <Route path="/dashboard" element={<Dashboard />}/>
-          <Route path="/profile" element={<Profile />}/>
+          <Route path="/about" element={<About />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
