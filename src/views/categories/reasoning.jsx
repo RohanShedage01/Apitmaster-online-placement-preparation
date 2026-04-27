@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from "react";
 import reasoningData from "../../Data/reasoningData.json";
 
@@ -110,3 +111,6 @@ const Reasoning = () => {
 };
 
 export default Reasoning;
+=======
+
+>>>>>>> d654a7d1f60be5eeb8a8771bbf7a085d6a04a79d
