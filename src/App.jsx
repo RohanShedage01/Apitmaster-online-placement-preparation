@@ -12,6 +12,7 @@ function App() {
       <main className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/results" element={<Results />} />
           <Route path="/home" element={<Navigate to="/" replace />} />
           <Route path="/aptitude" element={<Aptitude />} />
           <Route path="/dashboard" element={<Dashboard />}/>
