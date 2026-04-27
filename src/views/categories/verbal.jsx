@@ -1,43 +1,67 @@
 import React, { useState } from "react";
-import verbalQuestions from "../data/verbalQuestions.json";
-import "./Verbal.css";
+import data from "../data/verbalData.json";
 
 const Verbal = () => {
-  const [current, setCurrent] = useState(0);
+  const [topicIndex, setTopicIndex] = useState(null);
+  const [qIndex, setQIndex] = useState(0);
+  const [score, setScore] = useState(0);
   const [selected, setSelected] = useState("");
+  const [showResult, setShowResult] = useState(false);
 
-  const question = verbalQuestions[current];
+  // Topic Selection
+  if (topicIndex === null) {
+    return (
+      <div>
+        <h2>Select Topic</h2>
+        {data.map((t, i) => (
+          <button key={i} onClick={() => setTopicIndex(i)}>
+            {t.topic}
+          </button>
+        ))}
+      </div>
+    );
+  }
+
+  const questions = data[topicIndex].questions;
+  const q = questions[qIndex];
+
+  const handleNext = () => {
+    if (selected === q.answer) setScore(score + 1);
+
+    if (qIndex + 1 < questions.length) {
+      setQIndex(qIndex + 1);
+      setSelected("");
+    } else {
+      setShowResult(true);
+    }
+  };
+
+  // Result Page
+  if (showResult) {
+    return (
+      <div>
+        <h2>Result</h2>
+        <p>{score} / {questions.length}</p>
+        <button onClick={() => window.location.reload()}>
+          Restart
+        </button>
+      </div>
+    );
+  }
 
   return (
-    <div className="container">
-      <h2>Verbal Ability</h2>
+    <div>
+      <h2>{data[topicIndex].topic}</h2>
 
-      <h3>{question.question}</h3>
+      <h3>{q.question}</h3>
 
-      {question.options.map((opt, index) => (
-        <button
-          key={index}
-          onClick={() => setSelected(opt)}
-          className="option-btn"
-        >
+      {q.options.map((opt, i) => (
+        <button key={i} onClick={() => setSelected(opt)}>
           {opt}
         </button>
       ))}
 
-      {selected && (
-        <p className="result">
-          {selected === question.answer ? "✅ Correct" : "❌ Wrong"}
-        </p>
-      )}
-
-      <button
-        onClick={() => {
-          setCurrent(current + 1);
-          setSelected("");
-        }}
-      >
-        Next
-      </button>
+      <button onClick={handleNext}>Next</button>
     </div>
   );
 };

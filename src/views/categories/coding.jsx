@@ -1,32 +1,55 @@
 import React, { useState } from "react";
-import codingQuestions from "../data/codingQuestions.json";
-import "./Coding.css";
+import data from "../data/codingData.json";
 
 const Coding = () => {
-  const [selected, setSelected] = useState(null);
+  const [topicIndex, setTopicIndex] = useState(null);
+  const [qIndex, setQIndex] = useState(null);
 
-  return (
-    <div className="container">
-      <h2>Coding Practice</h2>
-
-      <div className="list">
-        {codingQuestions.map((q) => (
-          <button
-            key={q.id}
-            onClick={() => setSelected(q)}
-            className="question-btn"
-          >
-            {q.question}
+  // Topic Selection
+  if (topicIndex === null) {
+    return (
+      <div>
+        <h2>Select Coding Topic</h2>
+        {data.map((t, i) => (
+          <button key={i} onClick={() => setTopicIndex(i)}>
+            {t.topic}
           </button>
         ))}
       </div>
+    );
+  }
 
-      {selected && (
-        <div className="answer-box">
-          <h3>Answer:</h3>
-          <pre>{selected.answer}</pre>
-        </div>
-      )}
+  const questions = data[topicIndex].questions;
+
+  // Question List
+  if (qIndex === null) {
+    return (
+      <div>
+        <h3>{data[topicIndex].topic}</h3>
+
+        {questions.map((q, i) => (
+          <button key={i} onClick={() => setQIndex(i)}>
+            {q.question}
+          </button>
+        ))}
+
+        <button onClick={() => setTopicIndex(null)}>
+          Change Topic
+        </button>
+      </div>
+    );
+  }
+
+  const q = questions[qIndex];
+
+  // Answer View
+  return (
+    <div>
+      <h3>{q.question}</h3>
+      <pre>{q.answer}</pre>
+
+      <button onClick={() => setQIndex(null)}>Back</button>
+      <button onClick={() => setTopicIndex(null)}>Change Topic</button>
     </div>
   );
 };
