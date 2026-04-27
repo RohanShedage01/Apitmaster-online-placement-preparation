@@ -4,6 +4,7 @@ import Footer from './components/footer/footer';
 import Home from './views/home/home';
 import Aptitude from "./views/categories/aptitude.jsx";
 import Dashboard from './views/dashboard/dashboard.jsx';
+import Results from './views/results/results';
 
 function App() {
   return (
