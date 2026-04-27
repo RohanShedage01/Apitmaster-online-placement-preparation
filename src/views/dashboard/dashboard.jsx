@@ -7,7 +7,7 @@ import Footer from "../../components/Footer/footer";
 
 import { Calculator, Brain, BookOpen, Code } from "lucide-react";
 
-function dashboard() {
+function Dashboard() {
   const cards = [
     {
       id: 1,
@@ -23,8 +23,8 @@ function dashboard() {
     },
     {
       id: 3,
-      title: "English",
-      description: "Enhance grammar and vocabulary",
+      title : "Verbal Ability",
+      description : "Enhance grammar and vocabulary",
       icon: <BookOpen size={40} />,
     },
     {
@@ -61,4 +61,4 @@ function dashboard() {
   );
 }
 
-export default dashboard;
+export default Dashboard;

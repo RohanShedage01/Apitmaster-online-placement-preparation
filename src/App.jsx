@@ -2,12 +2,8 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar/navbar';
 import Footer from './components/footer/footer';
 import Home from './views/home/home';
-<<<<<<< HEAD
-import Results from './views/results/results';
-=======
 import Aptitude from "./views/categories/aptitude.jsx";
-import dashboard from './views/dashboard/dashboard.jsx';
->>>>>>> aa47276f522ece2aad77c2727c5f390a61eb6cb5
+import Dashboard from './views/dashboard/dashboard.jsx';
 
 function App() {
   return (
