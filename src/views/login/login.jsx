@@ -82,7 +82,7 @@ export default function Login() {
             />
 
             <button type="submit" className="login-btn">
-              Login
+              <a href="./../dashboard/dashboard.jsx">Login</a>
             </button>
           </form>
 
