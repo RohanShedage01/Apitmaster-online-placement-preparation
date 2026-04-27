@@ -108,7 +108,7 @@ export default function Signup() {
             />
 
             <button type="submit" className="login-btn">
-              Signup
+              <a href="./../home/home.jsx">Signup</a>
             </button>
           </form>
         </div>
