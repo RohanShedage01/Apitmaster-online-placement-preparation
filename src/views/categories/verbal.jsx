@@ -39,4 +39,4 @@ const Verbal = () => {
   );
 };
 
-export default Verbal;
+export default verbal;
