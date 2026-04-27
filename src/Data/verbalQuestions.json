@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "question": "Choose synonym of Happy",
+    "options": ["Sad", "Joyful", "Angry", "Tired"],
+    "answer": "Joyful"
+  },
+  {
+    "id": 2,
+    "question": "Choose antonym of Increase",
+    "options": ["Grow", "Expand", "Decrease", "Rise"],
+    "answer": "Decrease"
+  },
+  {
+    "id": 3,
+    "question": "Fill in the blank: She ___ going to school",
+    "options": ["is", "are", "am", "be"],
+    "answer": "is"
+  }
+]

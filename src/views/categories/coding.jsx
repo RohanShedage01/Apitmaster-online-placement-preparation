@@ -1,68 +1,34 @@
-import React from "react";
-import "./coding.css";
+import React, { useState } from "react";
+import codingQuestions from "../data/codingQuestions.json";
+import "./Coding.css";
 
 const Coding = () => {
-  const questions = [
-    {
-      id: 1,
-      title: "Print Hello World",
-      difficulty: "Easy",
-      answer: `#include <stdio.h>
-int main() {
-  printf("Hello World");
-  return 0;
-}`
-    },
-    {
-      id: 2,
-      title: "Sum of Two Numbers",
-      difficulty: "Easy",
-      answer: `#include <stdio.h>
-int main() {
-  int a = 5, b = 10;
-  printf("%d", a + b);
-  return 0;
-}`
-    },
-    {
-      id: 3,
-      title: "Palindrome Number",
-      difficulty: "Medium",
-      answer: `#include <stdio.h>
-int main() {
-  int n = 121, rev = 0, temp = n;
-  while(temp != 0) {
-    rev = rev * 10 + temp % 10;
-    temp /= 10;
-  }
-  if(n == rev)
-    printf("Palindrome");
-  else
-    printf("Not Palindrome");
-  return 0;
-}`
-    }
-  ];
+  const [selected, setSelected] = useState(null);
 
   return (
-    <div className="coding-container">
-      <h1>Coding Practice</h1>
+    <div className="container">
+      <h2>Coding Practice</h2>
 
-      {questions.map((q) => (
-        <div className="card" key={q.id}>
-          <h3>{q.title}</h3>
-          <p><strong>Difficulty:</strong> {q.difficulty}</p>
+      <div className="list">
+        {codingQuestions.map((q) => (
+          <button
+            key={q.id}
+            onClick={() => setSelected(q)}
+            className="question-btn"
+          >
+            {q.question}
+          </button>
+        ))}
+      </div>
 
-          <details>
-            <summary>View Answer</summary>
-            <pre>
-              <code>{q.answer}</code>
-            </pre>
-          </details>
+      {selected && (
+        <div className="answer-box">
+          <h3>Answer:</h3>
+          <pre>{selected.answer}</pre>
         </div>
-      ))}
+      )}
     </div>
   );
 };
 
-export default coding;
+export default Coding;

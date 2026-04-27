@@ -1,42 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
+import verbalQuestions from "../data/verbalQuestions.json";
 import "./Verbal.css";
 
 const Verbal = () => {
-  const questions = [
-    {
-      question: "Choose correct synonym of 'Happy'",
-      options: ["Sad", "Joyful", "Angry", "Tired"],
-      answer: "Joyful"
-    },
-    {
-      question: "Fill in the blank: She ___ going to college.",
-      options: ["is", "are", "am", "be"],
-      answer: "is"
-    },
-    {
-      question: "Choose correct antonym of 'Fast'",
-      options: ["Quick", "Rapid", "Slow", "Speedy"],
-      answer: "Slow"
-    }
-  ];
+  const [current, setCurrent] = useState(0);
+  const [selected, setSelected] = useState("");
+
+  const question = verbalQuestions[current];
 
   return (
-    <div className="verbal-container">
-      <h1>Verbal Ability</h1>
+    <div className="container">
+      <h2>Verbal Ability</h2>
 
-      {questions.map((q, index) => (
-        <div className="card" key={index}>
-          <h3>{q.question}</h3>
+      <h3>{question.question}</h3>
 
-          {q.options.map((opt, i) => (
-            <p key={i}>{opt}</p>
-          ))}
-
-          <p className="answer">Answer: {q.answer}</p>
-        </div>
+      {question.options.map((opt, index) => (
+        <button
+          key={index}
+          onClick={() => setSelected(opt)}
+          className="option-btn"
+        >
+          {opt}
+        </button>
       ))}
+
+      {selected && (
+        <p className="result">
+          {selected === question.answer ? "✅ Correct" : "❌ Wrong"}
+        </p>
+      )}
+
+      <button
+        onClick={() => {
+          setCurrent(current + 1);
+          setSelected("");
+        }}
+      >
+        Next
+      </button>
     </div>
   );
 };
 
-export default verbal;
+export default Verbal;

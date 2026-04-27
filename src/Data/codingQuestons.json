@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "question": "Write a program to print Hello World in C",
+    "answer": "#include <stdio.h>\nint main() {\n printf(\"Hello World\");\n return 0;\n}"
+  },
+  {
+    "id": 2,
+    "question": "Write a program to add two numbers",
+    "answer": "#include <stdio.h>\nint main() {\n int a=5,b=10;\n printf(\"Sum=%d\",a+b);\n return 0;\n}"
+  },
+  {
+    "id": 3,
+    "question": "Write a program to check even or odd",
+    "answer": "#include <stdio.h>\nint main() {\n int n=4;\n if(n%2==0) printf(\"Even\");\n else printf(\"Odd\");\n return 0;\n}"
+  }
+]
