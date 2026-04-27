@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./login.css";// reuse same CSS
+import "../login/login.css"; // reuse same CSS
 
 export default function Signup() {
   const [formData, setFormData] = useState({
@@ -8,14 +8,22 @@ export default function Signup() {
     password: "",
   });
 
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Signup form submitted:", formData);
+  };
   
   return (
-    <div className="wrapper">
-      <div className="container">
+    <div className="auth-wrapper">
+      <div className="auth-container">
 
         {/* LEFT SIDE IMAGE */}
-        <div className="right">
-          <div className="right-text">
+        <div className="auth-right">
+          <div className="auth-right-text">
             <h2>Join Us!</h2>
             <p>Create your account and start your journey</p>
 
@@ -28,8 +36,8 @@ export default function Signup() {
         </div>
 
         {/* RIGHT SIDE FORM */}
-        <div className="left">
-          <h2 className="heading-container">Signup</h2>
+        <div className="auth-left">
+          <h2 className="auth-heading-container">Signup</h2>
           <p>Create your account to continue</p>
 
           {/* Google */}
@@ -37,12 +45,12 @@ export default function Signup() {
             href="https://accounts.google.com/"
             target="_blank"
             rel="noreferrer"
-            className="social-btn"
+            className="auth-social-btn"
           >
             <img
               src="https://cdn-icons-png.flaticon.com/512/281/281764.png"
               alt="Google"
-              className="icon"
+              className="auth-icon"
             />
             Sign up with Google
           </a>
@@ -52,25 +60,25 @@ export default function Signup() {
             href="https://www.facebook.com/"
             target="_blank"
             rel="noreferrer"
-            className="social-btn"
+            className="auth-social-btn"
           >
             <img
               src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
               alt="Facebook"
-              className="icon"
+              className="auth-icon"
             />
             Sign up with Facebook
           </a>
 
           {/* FORM */}
           <form onSubmit={handleSubmit}>
-            <div className="divider">or</div>
+            <div className="auth-divider">or</div>
 
             <label>Name</label>
             <input
               type="text"
               name="name"
-              className="input-field"
+              className="auth-input-field"
               placeholder="Enter your name"
               value={formData.name}
               onChange={handleChange}
@@ -81,7 +89,7 @@ export default function Signup() {
             <input
               type="email"
               name="email"
-              className="input-field"
+              className="auth-input-field"
               placeholder="Enter your email"
               value={formData.email}
               onChange={handleChange}
@@ -92,7 +100,7 @@ export default function Signup() {
             <input
               type="password"
               name="password"
-              className="input-field"
+              className="auth-input-field"
               placeholder="Enter your password"
               value={formData.password}
               onChange={handleChange}

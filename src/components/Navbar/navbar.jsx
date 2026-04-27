@@ -1,27 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronDown, Triangle, Menu, X } from 'lucide-react';
+import { Triangle, Menu, X } from 'lucide-react';
 import './navbar.css';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
-
-  const toggleDropdown = (e) => {
-    e.stopPropagation();
-    setIsDropdownOpen(!isDropdownOpen);
-  };
-
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = () => setIsDropdownOpen(false);
-    document.addEventListener("click", handleClickOutside);
-    return () => document.removeEventListener("click", handleClickOutside);
-  }, []);
 
   return (
     <nav className="navbar-light">
@@ -55,25 +41,15 @@ const Navbar = () => {
           {/* Center Links */}
           <ul className="nav-links-center">
             <li>
-              <Link to="/" className="nav-link-item active" onClick={() => setIsMobileMenuOpen(false)}>
+              <Link to="/" className="nav-link-item" onClick={() => setIsMobileMenuOpen(false)}>
                 Home
               </Link>
             </li>
 
-            {/* Categories Dropdown */}
             <li>
-              <div className="nav-link-item with-dropdown" onClick={toggleDropdown}>
-                Categories <ChevronDown size={16} />
-
-                {isDropdownOpen && (
-                  <div className="dropdown-menu">
-                    <Link to="/aptitude" className="dropdown-item">Aptitude</Link>
-                    <Link to="/reasoning" className="dropdown-item">Reasoning</Link>
-                    <Link to="/verbal" className="dropdown-item">Verbal Ability</Link>
-                    <Link to="/coding" className="dropdown-item">Coding</Link>
-                  </div>
-                )}
-              </div>
+              <Link to="/about" className="nav-link-item" onClick={() => setIsMobileMenuOpen(false)}>
+                About
+              </Link>
             </li>
 
             <li>
@@ -85,11 +61,11 @@ const Navbar = () => {
 
           {/* Right Buttons */}
           <div className="nav-actions-right">
-            <Link to="/login" className="btn btn-outline nav-btn">
+            <Link to="/login" className="nav-link-item" onClick={() => setIsMobileMenuOpen(false)}>
               Login
             </Link>
 
-            <Link to="/signup" className="btn btn-primary nav-btn">
+            <Link to="/signup" className="nav-link-item" onClick={() => setIsMobileMenuOpen(false)}>
               Sign Up
             </Link>
           </div>

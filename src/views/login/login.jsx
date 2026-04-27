@@ -8,14 +8,22 @@ export default function Login() {
     password: "",
   });
 
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Login form submitted:", formData);
+  };
   
   return (
-    <div className="wrapper">
-      <div className="container">
+    <div className="auth-wrapper">
+      <div className="auth-container">
 
         {/* LEFT SIDE */}
-        <div className="left">
-          <h2 className="heading-container">Login</h2>
+        <div className="auth-left">
+          <h2 className="auth-heading-container">Login</h2>
           <p>Enter to improve your sleep and bring peace to your life</p>
 
           {/* Google */}
@@ -23,12 +31,12 @@ export default function Login() {
             href="https://accounts.google.com/"
             target="_blank"
             rel="noreferrer"
-            className="social-btn"
+            className="auth-social-btn"
           >
             <img
               src="https://cdn-icons-png.flaticon.com/512/281/281764.png"
               alt="Google"
-              className="icon"
+              className="auth-icon"
             />
             Sign in with Google
           </a>
@@ -38,24 +46,24 @@ export default function Login() {
             href="https://www.facebook.com/"
             target="_blank"
             rel="noreferrer"
-            className="social-btn"
+            className="auth-social-btn"
           >
             <img
               src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
               alt="Facebook"
-              className="icon"
+              className="auth-icon"
             />
             Sign in with Facebook
           </a>
           {/* FORM */}
           <form onSubmit={handleSubmit}>
-            <div className="divider">or</div>
+            <div className="auth-divider">or</div>
 
             <label>Email</label>
             <input
               type="email"
               name="email"
-              className="input-field"
+              className="auth-input-field"
               placeholder="Enter your email"
               value={formData.email}
               onChange={handleChange}
@@ -66,7 +74,7 @@ export default function Login() {
             <input
               type="password"
               name="password"
-              className="input-field"
+              className="auth-input-field"
               placeholder="Enter your password"
               value={formData.password}
               onChange={handleChange}
@@ -83,8 +91,8 @@ export default function Login() {
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="right">
-          <div className="right-text">
+        <div className="auth-right">
+          <div className="auth-right-text">
             <h2>Welcome Back!</h2>
             <p>Don't have an account? <a href="/signup">Sign up</a> now.</p>
           </div>
