@@ -2,39 +2,66 @@ import React from "react";
 import "./verbal.css";
 
 const Verbal = () => {
-  const questions = [
-    {
-      question: "Choose correct synonym of 'Happy'",
-      options: ["Sad", "Joyful", "Angry", "Tired"],
-      answer: "Joyful"
-    },
-    {
-      question: "Fill in the blank: She ___ going to college.",
-      options: ["is", "are", "am", "be"],
-      answer: "is"
-    },
-    {
-      question: "Choose correct antonym of 'Fast'",
-      options: ["Quick", "Rapid", "Slow", "Speedy"],
-      answer: "Slow"
+  const [topicIndex, setTopicIndex] = useState(null);
+  const [qIndex, setQIndex] = useState(0);
+  const [score, setScore] = useState(0);
+  const [selected, setSelected] = useState("");
+  const [showResult, setShowResult] = useState(false);
+
+  // Topic Selection
+  if (topicIndex === null) {
+    return (
+      <div>
+        <h2>Select Topic</h2>
+        {data.map((t, i) => (
+          <button key={i} onClick={() => setTopicIndex(i)}>
+            {t.topic}
+          </button>
+        ))}
+      </div>
+    );
+  }
+
+  const questions = data[topicIndex].questions;
+  const q = questions[qIndex];
+
+  const handleNext = () => {
+    if (selected === q.answer) setScore(score + 1);
+
+    if (qIndex + 1 < questions.length) {
+      setQIndex(qIndex + 1);
+      setSelected("");
+    } else {
+      setShowResult(true);
     }
-  ];
+  };
+
+  // Result Page
+  if (showResult) {
+    return (
+      <div>
+        <h2>Result</h2>
+        <p>{score} / {questions.length}</p>
+        <button onClick={() => window.location.reload()}>
+          Restart
+        </button>
+      </div>
+    );
+  }
 
   return (
-    <div className="verbal-container">
-      <h1>Verbal Ability</h1>
+    <div>
+      <h2>{data[topicIndex].topic}</h2>
 
-      {questions.map((q, index) => (
-        <div className="card" key={index}>
-          <h3>{q.question}</h3>
+      <h3>{q.question}</h3>
 
-          {q.options.map((opt, i) => (
-            <p key={i}>{opt}</p>
-          ))}
-
-          <p className="answer">Answer: {q.answer}</p>
-        </div>
+      {q.options.map((opt, i) => (
+        <button key={i} onClick={() => setSelected(opt)}>
+          {opt}
+        </button>
       ))}
+
+      <button onClick={handleNext}>Next</button>
     </div>
   );
 };

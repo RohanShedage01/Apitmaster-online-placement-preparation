@@ -1,0 +1,24 @@
+[
+  {
+    "topic": "Basics",
+    "questions": [
+      {
+        "question": "Print Hello World in C",
+        "answer": "#include <stdio.h>\nint main(){ printf(\"Hello World\"); }"
+      },
+      {
+        "question": "Add two numbers",
+        "answer": "#include <stdio.h>\nint main(){ int a=5,b=10; printf(\"%d\",a+b); }"
+      }
+    ]
+  },
+  {
+    "topic": "Conditions",
+    "questions": [
+      {
+        "question": "Check Even or Odd",
+        "answer": "#include <stdio.h>\nint main(){ int n=4; if(n%2==0) printf(\"Even\"); else printf(\"Odd\"); }"
+      }
+    ]
+  }
+]

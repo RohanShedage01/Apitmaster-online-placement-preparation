@@ -1,66 +1,55 @@
-import React from "react";
-import "./coding.css";
+import React, { useState } from "react";
+import data from "../data/codingData.json";
 
 const Coding = () => {
-  const questions = [
-    {
-      id: 1,
-      title: "Print Hello World",
-      difficulty: "Easy",
-      answer: `#include <stdio.h>
-int main() {
-  printf("Hello World");
-  return 0;
-}`
-    },
-    {
-      id: 2,
-      title: "Sum of Two Numbers",
-      difficulty: "Easy",
-      answer: `#include <stdio.h>
-int main() {
-  int a = 5, b = 10;
-  printf("%d", a + b);
-  return 0;
-}`
-    },
-    {
-      id: 3,
-      title: "Palindrome Number",
-      difficulty: "Medium",
-      answer: `#include <stdio.h>
-int main() {
-  int n = 121, rev = 0, temp = n;
-  while(temp != 0) {
-    rev = rev * 10 + temp % 10;
-    temp /= 10;
+  const [topicIndex, setTopicIndex] = useState(null);
+  const [qIndex, setQIndex] = useState(null);
+
+  // Topic Selection
+  if (topicIndex === null) {
+    return (
+      <div>
+        <h2>Select Coding Topic</h2>
+        {data.map((t, i) => (
+          <button key={i} onClick={() => setTopicIndex(i)}>
+            {t.topic}
+          </button>
+        ))}
+      </div>
+    );
   }
-  if(n == rev)
-    printf("Palindrome");
-  else
-    printf("Not Palindrome");
-  return 0;
-}`
-    }
-  ];
 
+  const questions = data[topicIndex].questions;
+
+  // Question List
+  if (qIndex === null) {
+    return (
+      <div>
+        <h3>{data[topicIndex].topic}</h3>
+
+        {questions.map((q, i) => (
+          <button key={i} onClick={() => setQIndex(i)}>
+            {q.question}
+          </button>
+        ))}
+
+        <button onClick={() => setTopicIndex(null)}>
+          Change Topic
+        </button>
+      </div>
+    );
+  }
+
+  const q = questions[qIndex];
+
+  // Answer View
   return (
-    <div className="coding-container">
-      <h1>Coding Practice</h1>
+    <div>
+      <h3>{q.question}</h3>
+      <pre>{q.answer}</pre>
 
-      {questions.map((q) => (
-        <div className="card" key={q.id}>
-          <h3>{q.title}</h3>
-          <p><strong>Difficulty:</strong> {q.difficulty}</p>
-
-          <details>
-            <summary>View Answer</summary>
-            <pre>
-              <code>{q.answer}</code>
-            </pre>
-          </details>
-        </div>
-      ))}
+      <button onClick={() => setQIndex(null)}>Back</button>
+      <button onClick={() => setTopicIndex(null)}>Change Topic</button>
     </div>
   );
 };

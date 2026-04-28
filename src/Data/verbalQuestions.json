@@ -1,0 +1,47 @@
+[
+  {
+    "topic": "Synonyms",
+    "questions": [
+      {
+        "question": "Choose synonym of Happy",
+        "options": ["Sad", "Joyful", "Angry", "Tired"],
+        "answer": "Joyful"
+      },
+      {
+        "question": "Choose synonym of Fast",
+        "options": ["Slow", "Quick", "Late", "Weak"],
+        "answer": "Quick"
+      }
+    ]
+  },
+  {
+    "topic": "Antonyms",
+    "questions": [
+      {
+        "question": "Choose antonym of Increase",
+        "options": ["Grow", "Decrease", "Expand", "Rise"],
+        "answer": "Decrease"
+      },
+      {
+        "question": "Choose antonym of Happy",
+        "options": ["Joyful", "Sad", "Excited", "Calm"],
+        "answer": "Sad"
+      }
+    ]
+  },
+  {
+    "topic": "Grammar",
+    "questions": [
+      {
+        "question": "She ___ going to school",
+        "options": ["is", "are", "am", "be"],
+        "answer": "is"
+      },
+      {
+        "question": "They ___ playing cricket",
+        "options": ["is", "are", "am", "be"],
+        "answer": "are"
+      }
+    ]
+  }
+]
