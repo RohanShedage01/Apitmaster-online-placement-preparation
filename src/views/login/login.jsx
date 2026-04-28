@@ -82,7 +82,7 @@ export default function Login() {
             />
 
             <button type="submit" className="login-btn">
-              Login
+              <a href="./../dashboard/dashboard.jsx">Login</a>
             </button>
           </form>
 
@@ -94,7 +94,7 @@ export default function Login() {
         <div className="auth-right">
           <div className="auth-right-text">
             <h2>Welcome Back!</h2>
-            <p>Don't have an account? <a href="/signup">Sign up</a> now.</p>
+            <p>Don't have an account? <a href="./../signup/signup.jsx">Sign up</a> now.</p>
           </div>
         </div>
 

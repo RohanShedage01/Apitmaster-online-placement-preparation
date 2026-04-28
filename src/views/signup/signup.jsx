@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../login/login.css"; // reuse same CSS
+import "./signup.css";
 
 export default function Signup() {
   const [formData, setFormData] = useState({
@@ -108,7 +108,7 @@ export default function Signup() {
             />
 
             <button type="submit" className="login-btn">
-              Signup
+              <a href="./../home/home.jsx">Signup</a>
             </button>
           </form>
         </div>
