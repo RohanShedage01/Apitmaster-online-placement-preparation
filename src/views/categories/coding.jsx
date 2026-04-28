@@ -65,4 +65,4 @@ int main() {
   );
 };
 
-export default coding;
+export default Coding;

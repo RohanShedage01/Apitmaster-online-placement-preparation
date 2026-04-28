@@ -1,5 +1,5 @@
 import React from "react";
-import "./Verbal.css";
+import "./verbal.css";
 
 const Verbal = () => {
   const questions = [
@@ -39,4 +39,4 @@ const Verbal = () => {
   );
 };
 
-export default verbal;
+export default Verbal;
