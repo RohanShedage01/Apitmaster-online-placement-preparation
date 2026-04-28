@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import data from "../data/verbalData.json";
+import React from "react";
+import "./verbal.css";
 
 const Verbal = () => {
   const [topicIndex, setTopicIndex] = useState(null);

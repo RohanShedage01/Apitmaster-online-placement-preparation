@@ -1,56 +1,15 @@
-.container {
-  text-align: center;
+.coding-container {
   padding: 20px;
-  background: #f9fafc;
-  min-height: 100vh;
 }
 
-h2 {
-  margin-bottom: 20px;
-  color: #333;
-}
-
-h3 {
-  margin: 20px 0;
-}
-
-button {
-  display: block;
-  width: 65%;
-  margin: 10px auto;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  background-color: #28a745;
-  color: white;
-  font-size: 15px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-button:hover {
-  background-color: #218838;
-}
-
-pre {
-  background: #1e1e1e;
-  color: #00ffcc;
+.card {
+  border: 1px solid #ddd;
+  margin: 10px;
   padding: 15px;
   border-radius: 10px;
-  width: 80%;
-  margin: 20px auto;
-  text-align: left;
-  overflow-x: auto;
-  font-size: 14px;
 }
 
-.result-box {
-  margin-top: 30px;
-  padding: 20px;
-  background: #fff;
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+.answer {
+  color: green;
+  font-weight: bold;
 }

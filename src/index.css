@@ -45,6 +45,8 @@ ul {
 
 .main-content {
   flex: 1;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .container {
